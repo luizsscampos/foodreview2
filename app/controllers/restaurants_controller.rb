@@ -8,9 +8,13 @@ class RestaurantsController < ApplicationController
   
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    @restaurant.save
-    flash[:sucess]= 'Restaurant has been created'
-    redirect_to restaurants_path
+    if @restaurant.save
+      flash[:sucess]= 'Restaurant has been created'
+      redirect_to restaurants_path
+    else
+      flash[:danger]= 'Restaurant has not been created'
+      render :new
+    end
     
   end
 
