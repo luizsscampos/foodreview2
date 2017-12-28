@@ -10,6 +10,6 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe RestaurantHelper, type: :helper do
+RSpec.describe RestaurantsHelper, type: :helper do
   pending "add some examples to (or delete) #{__FILE__}"
 end

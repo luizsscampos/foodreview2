@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe RestaurantController, type: :controller do
+RSpec.describe RestaurantsController, type: :controller do
   describe 'GET #index' do
     it 'returns http success' do
       get :index
