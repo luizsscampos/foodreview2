@@ -20,7 +20,10 @@ module Workspace
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
+    
     config.middleware.use Rack::Deflater
+    
+    config.web_console.whitelisted_ips = ['82.1.227.107','10.240.0.211/22','192.168.1.0/24']
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
