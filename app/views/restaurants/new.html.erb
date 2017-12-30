@@ -22,85 +22,87 @@
         <% end %>
 		<% # Name %>
 		<div class='form-group'>
-			<div class='control-label col-md-1'>
+			<div class='control-label col-md-2'>
 				<%= f.label :name do %>
 				    Name <span class="required">*</span>
 				<% end %>
 			</div>
-			<div class='col-md-11'>
+			<div class='col-md-10'>
 				<%= f.text_field :name, class: 'form-control', placeholder: 'E.g. Lee Chinese', autofocus: true %> 
 			</div>
 		</div>
 		
 		<% # Description %>
 		<div class='form-group'>
-			<div class='control-label col-md-1'> 
+			<div class='control-label col-md-2'> 
 				<%= f.label :description do %>
 				    Description <span class="required">*</span>
 				<% end %>
 			</div>
-			<div class='col-md-11'>
+			<div class='col-md-10'>
 				<%= f.text_area :description, rows: 10, class: 'form-control', placeholder: 'Restaurant description' %>
 			</div>
 		</div>
 		
 		<% # Address1 %>
 		<div class='form-group'>
-			<div class='control-label col-md-1'>
+			<div class='control-label col-md-2'>
 				<%= f.label :address1 do %>
 				    Address 1 <span class="required">*</span>
 				<% end %>
 			</div>
-			<div class='col-md-11'>
+			<div class='col-md-10'>
 				<%= f.text_field :address1, class: 'form-control', placeholder: 'E.g. 200 Cheam Road' %> 
 			</div>
 		</div>
 		
 		<% # Address2 %>
 		<div class='form-group'>
-			<div class='control-label col-md-1'>
-				<%= f.label :address2 %> 
+			<div class='control-label col-md-2'>
+				<%= f.label :address1 do %>
+				    Address 2
+				<% end %>
 			</div>
-			<div class='col-md-11'>
+			<div class='col-md-10'>
 				<%= f.text_field :address2, class: 'form-control', placeholder: 'E.g. Sparcells' %> 
 			</div>
 		</div>
 		
 		<% # City %>
 		<div class='form-group'>
-			<div class='control-label col-md-1'>
+			<div class='control-label col-md-2'>
 				<%= f.label :city do %>
 				    City <span class="required">*</span>
 				<% end %>
 			</div>
-			<div class='col-md-11'>
+			<div class='col-md-10'>
 				<%= f.text_field :city, class: 'form-control', placeholder: 'E.g. Bristol' %> 
 			</div>
 		</div>
 		
 		<% # County %>
 		<div class='form-group'>
-			<div class='control-label col-md-1'>
+			<div class='control-label col-md-2'>
 				<%= f.label :county %> 
 			</div>
-			<div class='col-md-11'>
+			<div class='col-md-10'>
 				<%= f.text_field :county, class: 'form-control', placeholder: 'E.g. Wiltshire' %> 
 			</div>
 		</div>
 		
 		<% # Postcode %>
 		<div class='form-group'>
-			<div class='control-label col-md-1'>
+			<div class='control-label col-md-2'>
 				<%= f.label :postcode do %>
 				    Postcode <span class="required">*</span>
 				<% end %>
 			</div>
-			<div class='col-md-11'>
+			<div class='col-md-10'>
 				<%= f.text_field :postcode, class: 'form-control', placeholder: 'E.g. EN1 DG2' %> 
 			</div>
 		</div>
 		<div class='form-group'>
-			<div class='col-md-offset-1 col-md-11'>
+			<div class='col-md-offset-2 col-md-10'>
 				<%= f.submit 'Save Restaurant', class: 'btn btn-primary btn-lg pull-right' %> 
 			</div>
 		</div>
