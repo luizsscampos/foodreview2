@@ -33,8 +33,8 @@ RSpec.feature 'Creating restaurant' do
     click_button 'Save Restaurant'
     expect(page).to have_content('Restaurant has not been created')
     expect(page).to have_content("Name can't be blank")
-    expect(page).to have_content("Description is too short (minimum is 3 characters)")
-    expect(page).to have_content("Address1 is too short (minimum is 3 characters)")
+    expect(page).to have_content("Description can't be blank")
+    expect(page).to have_content("Address1 can't be blank")
     expect(page).to have_content("City can't be blank")
     expect(page).to have_content("Postcode can't be blank")
   end

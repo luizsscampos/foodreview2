@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
     #   get 'restaurants/index'
 
-    # For details on the DSL available within this file, 
+    # For details on the DSL available within this file,
     #   see http://guides.rubyonrails.org/routing.html
-    root to:"restaurants#index"
+    root to: 'restaurants#index'
     
     resources :restaurants
     # Add following paths for restaurants
@@ -17,5 +17,4 @@ Rails.application.routes.draw do
     #                     PATCH       /restaurants/:id(.:format)      restaurants#update
     #                     PUT         /restaurants/:id(.:format)      restaurants#update
     #                     DELETE      /restaurants/:id(.:format)      restaurants#destroy
-
 end
