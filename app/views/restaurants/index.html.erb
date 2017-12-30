@@ -2,3 +2,17 @@
 <%= link_to new_restaurant_path, class:'btn btn-default' do %>
     New Restaurant <i class='glyphicon glyphicon-plus'></i>
 <% end %>
+<% if @restaurants.empty? %>
+    <p>No restaurants avaliable</p>
+<% else %>
+    <% @restaurants.each do |restaurant| %>
+    <ul>
+        <li id="restaurant<%= restaurant.id %>">
+            <ul>
+                <li><%= restaurant.name %></li>
+                <li><%= truncate(restaurant.description, length: 100) { link_to "Continue", "#" } %></li>
+            </ul>
+        </li>
+    </ul>
+    <% end %>
+<% end %>
