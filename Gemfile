@@ -47,6 +47,7 @@ group :development, :test do
   gem 'guard-cucumber'
   gem 'guard-rspec'
   gem 'rspec-rails'
+  gem 'faker'
 end
 
 group :development do
