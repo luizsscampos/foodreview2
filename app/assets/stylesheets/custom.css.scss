@@ -1,2 +1,94 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.required
+{
+    color:red;
+    font-weight:bold;
+}
+
+
+
+#return-to-top {
+    z-index:5;
+    position: fixed;
+    bottom: 20px;
+    // right: 20px;
+    right:50%;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    width: 50px;
+    height: 50px;
+    display: block;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    left: 16px;
+    top: 13px;
+    font-size: 19px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+#return-to-top:hover i {
+    color: #fff;
+    top: 5px;
+}
+
+/* ==========================================================
+! Footer
+========================================================== */
+.pagefooter 
+    {
+	background: #3a3a3a;
+	margin-top:60px;
+	margin-bottom:10px;
+	/*margin: 30px 0;*/
+	padding: 0 0 30px;
+	color: #aaa;
+}
+.pagefooter a {
+	color: #aaa;
+}
+.footer-widget {
+	margin: 30px 0 0;
+}
+.footer-widget ul {
+	list-style: none;
+	/*padding: 0;*/
+	margin: 0;
+}
+
+
+.footer-widget h3 {
+	color: #fff;
+	margin: 0 0 20px;
+	padding: 0 0 20px;
+	border-bottom: 1px solid #5a5a5a;
+	text-align:center;
+}
+
+.copyright
+{
+    margin-top:20px;
+    padding:10px;
+    border-top: 3px double #5a5a5a;
+    border-bottom: 3px double #5a5a5a;
+}
