@@ -2,17 +2,38 @@
 <%= link_to new_restaurant_path, class:'btn btn-default' do %>
     New Restaurant <i class='glyphicon glyphicon-plus'></i>
 <% end %>
-<% if @restaurants.empty? %>
-    <p>No restaurants avaliable</p>
-<% else %>
-    <% @restaurants.each do |restaurant| %>
-    <ul>
-        <li id="restaurant<%= restaurant.id %>">
-            <ul>
-                <li><%= restaurant.name %></li>
-                <li><%= truncate(restaurant.description, length: 100) { link_to "Continue", "#" } %></li>
-            </ul>
-        </li>
-    </ul>
+<div class="row">
+    <% if @restaurants.empty? %>
+        <p>No restaurants avaliable</p>
+    <% else %>
+        <% @restaurants.each do |restaurant| %>
+        <ul class='restaurants'>
+            <li id="restaurant<%= restaurant.id %>" class="col-sm-5 col-sm-offset-1 col-lg-3 col-lg-offset-1 restaurant">
+                <div class="holder">
+                    <div class="prop-info">
+                        <h3 class="prop-title text-center">
+                            <%= link_to restaurant_path(restaurant) do %>
+                                <%= restaurant.name %>
+                            <% end %>
+                        </h3>
+                        <ul class='more-info'>
+                            <li class="clearfix">
+                                <span class="pull-left field-name">Category:</span> <span class="qty pull-right">Chinese</span>
+                            </li>
+                            <li class="clearfix">
+                                <span class="pull-left field-name">Avg Rating:</span> <span class="qty pull-right">4</span>
+                            </li>
+                            <li class="clearfix ">
+                                <span class="pull-left field-name">Location:</span> <span class="qty pull-right"><%= restaurant.address1 %><br><%= restaurant.city %><br><%= restaurant.postcode %></span>
+                            </li>
+                            <li class="clearfix">
+                                <span class="pull-left field-name">Description:</span> <span class="qty pull-right"><%= truncate(restaurant.description, length: 100) { link_to "Continue", "#" } %></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <% end %>
     <% end %>
-<% end %>
+</div>
