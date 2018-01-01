@@ -17,6 +17,10 @@ class RestaurantsController < ApplicationController
       render :new
     end
   end
+  
+  def show
+    @restaurant = Restaurant.find(params[:id])
+  end
 
   private
 
