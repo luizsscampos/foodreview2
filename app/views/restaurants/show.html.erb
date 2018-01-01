@@ -1,0 +1,29 @@
+<%= @restaurant.name %><br>
+Image<br>[image here]<br>
+Location:<br>
+<%= @restaurant.address1 %>,<br>
+<% if !@restaurant.address2.empty? %>
+    <%= @restaurant.address2 %>,<br>
+<% end %>
+<%= @restaurant.city %>,<br>
+<% if !@restaurant.county.empty? %>
+    <%= @restaurant.county %><br>,
+<% end %>
+<%= @restaurant.postcode %><br><br>
+
+Parking: Yes<br>
+Wifi: Yes<br>
+Type: Chinese<br>
+Outdoor Seating : No<br>
+Takeaway: No<br>
+Delivery: No<br>
+Serving Times: All day (See website for times)
+
+
+<%= @restaurant.description %><br>
+<%= link_to restaurants_path, class:'btn btn-default', title:'See all restaurants' do %>
+    View Restaurants <i class='glyphicon glyphicon-arrow-left'></i>
+<% end %>
+<%= link_to edit_restaurant_path(@restaurant), class:'btn btn-default', title:'Modify current restaurant' do %>
+    Edit Restaurant <i class='glyphicon glyphicon-pencil'></i>
+<% end %>
