@@ -1,29 +1,74 @@
-<%= @restaurant.name %><br>
-Image<br>[image here]<br>
-Location:<br>
-<%= @restaurant.address1 %>,<br>
-<% if !@restaurant.address2.empty? %>
-    <%= @restaurant.address2 %>,<br>
-<% end %>
-<%= @restaurant.city %>,<br>
-<% if !@restaurant.county.empty? %>
-    <%= @restaurant.county %><br>,
-<% end %>
-<%= @restaurant.postcode %><br><br>
-
-Parking: Yes<br>
-Wifi: Yes<br>
-Type: Chinese<br>
-Outdoor Seating : No<br>
-Takeaway: No<br>
-Delivery: No<br>
-Serving Times: All day (See website for times)
-
-
-<%= @restaurant.description %><br>
-<%= link_to restaurants_path, class:'btn btn-default', title:'See all restaurants' do %>
-    View Restaurants <i class='glyphicon glyphicon-arrow-left'></i>
-<% end %>
-<%= link_to edit_restaurant_path(@restaurant), class:'btn btn-default', title:'Modify current restaurant' do %>
-    Edit Restaurant <i class='glyphicon glyphicon-pencil'></i>
-<% end %>
+<div class='row'>
+    <div class='restaurant col-sm-7' style='padding-left:15px; padding-right:15px; margin:auto;'>
+        <div>
+            <h2 class='text-center'><%= @restaurant.name %></h2>
+            Image<br>[image here]<br>
+            <h3><%= @restaurant.address1 %>,
+            <% if !@restaurant.address2.empty? %>
+                <%= @restaurant.address2 %>,<br>
+            <% end %>
+            <%= @restaurant.city %>,
+            <% if !@restaurant.county.empty? %>
+                <%= @restaurant.county %><br>,
+            <% end %>
+    
+            <%= @restaurant.postcode %></h3>
+            <div class='row' style='margin-left:0; margin-right:0'>
+                <ul class='more-info col-sm-6'>
+                    <li class="clearfix">
+                        <span class="pull-left field-name">Parking:</span>
+                        <span class="qty pull-right">Yes</span>
+                    </li>
+                    <li class="clearfix">
+                        <span class="pull-left field-name">WiFi:</span>
+                        <span class="qty pull-right">Yes</span>
+                    </li>
+                    <li class="clearfix">
+                        <span class="pull-left field-name">Type:</span>
+                        <span class="qty pull-right">Chinese</span>
+                    </li>
+                    <li class="clearfix">
+                        <span class="pull-left field-name">Outdoor Seating:</span>
+                        <span class="qty pull-right">No</span>
+                    </li>
+                </ul>
+                <ul class='more-info col-sm-6'>
+                    <li class="clearfix">
+                        <span class="pull-left field-name">Takeaway:</span>
+                        <span class="qty pull-right">No</span>
+                    </li>
+                    <li class="clearfix">
+                        <span class="pull-left field-name">Delivery:</span>
+                        <span class="qty pull-right">No</span>
+                    </li>
+                    <li class="clearfix">
+                        <span class="pull-left field-name">Serving Times:</span>
+                        <span class="qty pull-right">No</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!--Parking: Yes<br>-->
+            <!--Wifi: Yes<br>-->
+            <!--Type: Chinese<br>-->
+            <!--Outdoor Seating : No<br>-->
+            <!--Takeaway: No<br>-->
+            <!--Delivery: No<br>-->
+            <!--Serving Times: All day (See website for times)-->
+            
+            <h3>DESCRIPTION</h3>
+            <%= @restaurant.description %><br>
+            <%= link_to restaurants_path, class:'btn btn-default', title:'See all restaurants' do %>
+                View Restaurants <i class='glyphicon glyphicon-arrow-left'></i>
+            <% end %>
+            <%= link_to edit_restaurant_path(@restaurant), class:'btn btn-default', title:'Modify current restaurant' do %>
+                Edit Restaurant <i class='glyphicon glyphicon-pencil'></i>
+            <% end %>
+        </div>
+    </div>
+    <div class='col-sm-4 col-sm-offset-1' >
+        <%= render 'layouts/map' %>
+        <%= render 'layouts/owner' %>
+        <%= render 'layouts/search_form' %>
+    </div>
+</div>
