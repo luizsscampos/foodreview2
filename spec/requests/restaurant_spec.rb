@@ -3,7 +3,7 @@ RSpec.describe 'Restaurant', type: :request do
     before do
         @restaurant1 = Restaurant.create(
           name: 'Nando',
-          description: Faker::Lorem.paragraph(2, false, 4),
+          description: Faker::Lorem.unique.paragraph(2, true, 5),
           address1: '5 Lomdon Close',
           address2: 'Sparclls',
           city: 'Swindon',
