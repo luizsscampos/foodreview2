@@ -21,7 +21,16 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
   end
+  
+  protected
+  
 
+  def resource_not_found 
+    message = "The restaurant you are looking for could not be found"
+    flash[:warning] = message
+    redirect_to root_path
+  end
+  
   private
 
   # Whitelist fields
