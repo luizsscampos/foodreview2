@@ -1,13 +1,24 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.required
-{
-    color:red;
-    font-weight:bold;
+/* ==========================================================
+! Navbar
+========================================================== */
+.navbar-default .navbar-brand {
+    color: #666;
 }
 
-
+/* ==========================================================
+! form
+========================================================== */
+.required
+{
+    color:#A80000;
+    font-weight:bold;
+}
+/* ==========================================================
+! restaurant
+========================================================== */
 
 .restaurants
 {
@@ -16,7 +27,7 @@
 .restaurant
 {
     list-style:none;
-    border:solid 1px #000;
+    // border:solid 1px #000;
     min-height:550px;
     // margin-top: 10px;
     margin:10px 4.166665%;
@@ -44,6 +55,15 @@
     font-weight:bold;
 }
 
+.restaurant_links{
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.restaurant_links a{
+    margin:auto 5px;
+    
+}
+
 /* ==========================================================
 ! Sidebar
 ========================================================== */
@@ -51,11 +71,11 @@
 /* ==========================================================
 ! Sidebar - Map
 ========================================================== */
-    iframe
-    {
-        height:312px;
-        width:100%;
-    }
+iframe
+{
+    height:312px;
+    width:100%;
+}
 
 /* ==========================================================
 ! Scroll to top link
@@ -109,7 +129,8 @@
 ========================================================== */
 .pagefooter 
     {
-	background: #3a3a3a;
+// 	background: #3a3a3a;
+    background:#222d32;
 	margin-top:60px;
 	margin-bottom:10px;
 	/*margin: 30px 0;*/
