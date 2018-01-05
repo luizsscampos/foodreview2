@@ -1,6 +1,8 @@
+# Restaurant Controller
 class RestaurantsController < ApplicationController
+  before_action :set_restaurant, only: %i[show edit update]
   def index
-    @restaurants= Restaurant.all
+    @restaurants = Restaurant.all
   end
 
   def new
@@ -17,20 +19,29 @@ class RestaurantsController < ApplicationController
       render :new
     end
   end
-  
-  def show
-    @restaurant = Restaurant.find(params[:id])
-  end
-  
-  protected
-  
 
-  def resource_not_found 
-    message = "The restaurant you are looking for could not be found"
+  def show; end
+
+  def edit; end
+
+  def update
+    if @restaurant.update(restaurant_params)
+      flash[:sucess] = 'Restaurant has been upated'
+      redirect_to @restaurant
+    else
+      flash.now[:danger] = 'Restaurant has not been upated'
+      render :edit
+    end
+  end
+
+  protected
+
+  def resource_not_found
+    message = 'The restaurant you are looking for could not be found'
     flash[:warning] = message
     redirect_to root_path
   end
-  
+
   private
 
   # Whitelist fields
@@ -44,5 +55,9 @@ class RestaurantsController < ApplicationController
       :county,
       :postcode
     )
+  end
+
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:id])
   end
 end
