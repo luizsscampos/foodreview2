@@ -1,7 +1,9 @@
-<h1>Restaurant</h1>
-<%= link_to new_restaurant_path, class:'btn btn-default' do %>
-    New Restaurant <i class='glyphicon glyphicon-plus'></i>
-<% end %>
+<h1 class='text-center'>Restaurant</h1>
+<div class='text-center restaurant_links'>
+    <%= link_to new_restaurant_path, class:'btn btn-primary btn-lg' do %>
+        New Restaurant <i class='glyphicon glyphicon-plus'></i>
+    <% end %>
+</div>
 <div class="row">
     <% if @restaurants.empty? %>
         <p>No restaurants avaliable</p>
