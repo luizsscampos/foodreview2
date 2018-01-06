@@ -29,7 +29,7 @@
                                 <span class="pull-left field-name">Location:</span> <span class="qty pull-right"><%= restaurant.address1 %><br><%= restaurant.city %><br><%= restaurant.postcode %></span>
                             </li>
                             <li class="clearfix">
-                                <span class="pull-left field-name">Description:</span> <span class="qty pull-right"><%= truncate(restaurant.description, length: 100) { link_to "Continue", "#" } %></span>
+                                <span class="pull-left field-name">Description:</span> <span class="qty pull-right"><%= truncate(restaurant.description, length: 100) { link_to "Continue", restaurant_path(restaurant) } %></span>
                             </li>
                         </ul>
                     </div>
