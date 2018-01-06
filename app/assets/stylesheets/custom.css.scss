@@ -2,11 +2,87 @@
 @import "bootstrap";
 
 /* ==========================================================
+! Generic
+========================================================== */
+
+.btn-primary:hover {
+    background-color: #285070;
+}
+
+/* ==========================================================
 ! Navbar
 ========================================================== */
-.navbar-default .navbar-brand {
-    color: #666;
-}
+
+.navbar
+  {
+    background:#3c8dbc;
+  }
+  
+  
+  .navbar-brand
+  {
+    font-size: 25px;
+    /*background:#2C5C7D;*/
+    text-shadow: #000 1px 0 10px;
+  }
+  
+  .navbar-brand:hover
+  {
+    text-shadow: #fff 1px 0 10px;
+  }
+  
+  .navbar-brand > .brand-image
+  {
+    display:inline-block;
+    width:40px;
+    height:40px;
+    margin-top:-15px;
+  }
+  
+  .navbar a{
+    color:white;
+  }
+  .navbar a:hover,
+  .nav > li > a:hover
+  {
+    background:#285070;
+    color:white;
+  }
+  .nav .open > a, .nav .open > a:hover, .nav .open > a:focus
+  {
+    background: #222d32;
+  }
+  
+  .dropdown-menu
+  {
+    background:#285070;
+  }
+  
+  .dropdown-menu > li >a
+  {
+    color:white;
+  }
+  
+  .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus
+  {
+    background:#3c8dbc;
+    color:white;
+  }
+  /*background: #222d32;*/
+  
+  .navbar-toggle
+  {
+    border-color:white;
+  }
+  
+  .navbar-toggle .icon-bar
+  {
+    background:white;
+  }
+  
+  .navbar-nav .open .dropdown-menu {
+    background:#285070;
+  }
 
 /* ==========================================================
 ! form
@@ -145,8 +221,9 @@ iframe
 }
 .footer-widget ul {
 	list-style: none;
-	/*padding: 0;*/
+	padding: 0;
 	margin: 0;
+	text-align:center;
 }
 
 
@@ -164,4 +241,13 @@ iframe
     padding:10px;
     border-top: 3px double #5a5a5a;
     border-bottom: 3px double #5a5a5a;
+}
+
+@media only screen and (max-width: 767px) {
+  
+  .footer-widget ul li
+  {
+    display:inline-block;
+  }
+  
 }
