@@ -1,6 +1,6 @@
 # Restaurant Controller
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: %i[show edit update]
+  before_action :set_restaurant, only: %i[show edit update destroy]
   def index
     @restaurants = Restaurant.all
   end
@@ -33,6 +33,19 @@ class RestaurantsController < ApplicationController
       render :edit
     end
   end
+  
+  def destroy
+    @myrestaurant = Restaurant.new(restaurant_params)
+    puts @myrestaurant.inspect
+    if @restaurant.name == @myrestaurant.name && @restaurant.destroy
+      flash[:success] = "Restaurant has been deleted"
+      redirect_to restaurants_path
+    else
+      flash[:danger] = "Restaurant has not been deleted"
+      render :show
+    end
+    
+  end  
 
   protected
 
