@@ -66,6 +66,29 @@
                     Edit Restaurant <i class='glyphicon glyphicon-pencil'></i>
                 <% end %>
             </div>
+            <%= form_for @restaurant,:html => {class: "form-horizontal"}, method: "delete" do |form| %>
+                <h3> DELETE RESTAURANT</h3>
+                <p> By correclty entering the restaurant and click Delete restaurant button, you permanently delete this restaurant.</p>
+                <div class='form-group'>
+                    <div class='control-label col-md-2'> 
+                        <%= form.label :name do %>
+                            Name <span class="required">*</span>
+                        <% end %>
+                    </div>
+                    <div class='col-md-10'>
+                        <%= form.text_field :name, class: 'form-control' ,value: '' %>
+                    </div>
+                <!--</div>-->
+                <!--<div class='form-group'>-->
+                    <!--<div class='col-md-offset-2 col-md-10'>-->
+                    <div class='col-md-offset-2 col-md-10'>
+                        <%= form.button class: 'btn btn-primary btn-lg',
+                        data: { confirm: "Are you sure you want to delete #{@restaurant.name}?\n This action cannot be undone." } do %>
+                            Delete <i class='glyphicon glyphicon-trash'></i>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
         </div>
     </div>
     <div class='col-sm-4 col-sm-offset-1' >
