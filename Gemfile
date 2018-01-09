@@ -47,6 +47,7 @@ group :development, :test do
   gem 'guard'
   gem 'guard-cucumber'
   gem 'guard-rspec'
+  gem 'pry'
   gem 'rspec-rails'
 end
 
@@ -65,6 +66,7 @@ end
 group :test do
   gem 'capybara'
   gem 'rubocop'
+  gem 'selenium-webdriver'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
