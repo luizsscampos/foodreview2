@@ -10,8 +10,6 @@ RSpec.feature 'Show restaurants' do
     expect(page).not_to have_content @restaurant1.name
     expect(page).to have_content @restaurant2.name
     expect(page).to have_content @restaurant2.description
-    expect(page).to have_content @restaurant2.address1
-    expect(page).to have_content @restaurant2.city
-    expect(page).to have_content @restaurant2.postcode
+    expect(page).to have_content @restaurant2.full_address
   end
 end

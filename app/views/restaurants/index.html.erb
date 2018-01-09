@@ -26,7 +26,7 @@
                                 <span class="pull-left field-name">Avg Rating:</span> <span class="qty pull-right">4</span>
                             </li>
                             <li class="clearfix ">
-                                <span class="pull-left field-name">Location:</span> <span class="qty pull-right"><%= restaurant.address1 %><br><%= restaurant.city %><br><%= restaurant.postcode %></span>
+                                <span class="pull-left field-name">Location:</span> <span class="qty pull-right"><%= restaurant.full_address %></span>
                             </li>
                             <li class="clearfix">
                                 <span class="pull-left field-name">Description:</span> <span class="qty pull-right"><%= truncate(restaurant.description, length: 100) { link_to "Continue", restaurant_path(restaurant) } %></span>

@@ -4,16 +4,7 @@
         <div>
             <h2 class='text-center restaurant-name'><%= @restaurant.name %></h2>
             Image<br>[image here]<br>
-            <h3><%= @restaurant.address1 %>,
-            <% if !@restaurant.address2.empty? %>
-                <%= @restaurant.address2 %>,<br>
-            <% end %>
-            <%= @restaurant.city %>,
-            <% if !@restaurant.county.empty? %>
-                <%= @restaurant.county %><br>,
-            <% end %>
-
-            <%= @restaurant.postcode %></h3>
+            <h3><%= @restaurant.full_address %></h3>
             <div class='row' style='margin-left:0; margin-right:0'>
                 <ul class='more-info col-sm-6'>
                     <li class="clearfix">
@@ -85,6 +76,7 @@
                       data: { confirm: "Are you sure you want to delete #{@restaurant.name}?\n This action cannot be undone." } do %>
                           Delete <%= @restaurant.name %> <i class='glyphicon glyphicon-trash'></i>
                       <% end %>
+                      <div class='clearfix'></div>
                   <!-- </div> -->
             <% end %>
         </div>
