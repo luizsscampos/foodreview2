@@ -33,19 +33,21 @@ class RestaurantsController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @myrestaurant = Restaurant.new(restaurant_params)
     puts @myrestaurant.inspect
-    if @restaurant.name == @myrestaurant.name && @restaurant.destroy
+    # if @restaurant.name == @myrestaurant.name && @restaurant.destroy
+      if @restaurant.destroy
       flash[:success] = "Restaurant has been deleted"
       redirect_to restaurants_path
-    else
-      flash[:danger] = "Restaurant has not been deleted"
-      render :show
-    end
-    
-  end  
+      end
+    # else
+    #   flash[:danger] = "Restaurant has not been deleted"
+    #   render :show
+    # end
+
+  end
 
   protected
 
