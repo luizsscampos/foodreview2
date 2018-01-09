@@ -1,25 +1,29 @@
 require 'rails_helper'
 require_relative '../../support/shared_stuff'
-RSpec.feature 'Delete Restaurant' do
+
+RSpec.describe 'Delete Restaurant' do
   include_context 'shared_stuff'
-  scenario 'User delete a restaurant' do
-    visit '/'
-    within('//li#restaurant2') do
-      click_link(@restaurant2.name)
-    end
-    fill_in('restaurant[name]', with: @restaurant2.name)
-    click_button 'Delete'
-    expect(page).to have_content("Restaurant has been deleted")
-    expect(current_path).to have_content(restaurants_path)
-  end
-  scenario 'User fails to delete a restaurant' do
-    visit '/'
-    within('//li#restaurant2') do
-      click_link(@restaurant2.name)
-    end
+  it 'User fails to delete a restaurant' do
+    driver = Selenium::WebDriver.for :firefox
+    visit '/restaurants/2'
     fill_in('restaurant[name]', with: '')
-    click_button 'Delete'
-    expect(page).to have_content("Restaurant has not been deleted")
-    # expect(current_path).to have_content(restaurant_path)
+    expect(page).to have_button('Delete', disabled: true)
+    expect(page).not_to have_content('Restaurant has been deleted')
+    expect(Restaurant.count).to eq 2
+    driver.quit
+  end
+  it 'User delete a restaurant', js: true do
+    driver = Selenium::WebDriver.for :firefox
+    visit '/restaurants/2'
+    fill_in('restaurant[name]', with: @restaurant2.name)
+    # driver = Selenium::WebDriver.for :firefox
+    # Selenium::WebDriver::Wait.new(timeout: 4) # seconds
+    click_button "Delete #{@restaurant2.name}"
+    accept_confirm {}
+    expect(page).to have_content('Restaurant has been deleted')
+    expect(current_path).to have_content(restaurants_path)
+    # binding.pry
+    expect(Restaurant.count).to eq 1
+    driver.quit
   end
 end
