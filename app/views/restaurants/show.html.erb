@@ -1,7 +1,8 @@
 <div class='row'>
-    <div class='restaurant col-sm-7' style='padding-left:15px; padding-right:15px; margin:0;'>
+    <!--  <div class='restaurant col-sm-7' style='padding-left:15px; padding-right:15px; margin:0;'> -->
+    <div class='restaurant col-sm-7' style='padding:15px; padding-right:15px; margin-left:0;margin-right:0;'>
         <div>
-            <h2 class='text-center'><%= @restaurant.name %></h2>
+            <h2 class='text-center restaurant-name'><%= @restaurant.name %></h2>
             Image<br>[image here]<br>
             <h3><%= @restaurant.address1 %>,
             <% if !@restaurant.address2.empty? %>
@@ -11,7 +12,7 @@
             <% if !@restaurant.county.empty? %>
                 <%= @restaurant.county %><br>,
             <% end %>
-    
+
             <%= @restaurant.postcode %></h3>
             <div class='row' style='margin-left:0; margin-right:0'>
                 <ul class='more-info col-sm-6'>
@@ -47,7 +48,7 @@
                     </li>
                 </ul>
             </div>
-            
+
             <!--Parking: Yes<br>-->
             <!--Wifi: Yes<br>-->
             <!--Type: Chinese<br>-->
@@ -55,10 +56,10 @@
             <!--Takeaway: No<br>-->
             <!--Delivery: No<br>-->
             <!--Serving Times: All day (See website for times)-->
-            
+
             <h3>DESCRIPTION</h3>
-            <%= @restaurant.description %><br>
-            <div class='restaurant_links text-center'>
+            <%= @restaurant.description %>
+            <div class='restaurant-links text-center'>
                 <%= link_to restaurants_path, class:'btn btn-primary btn-lg', title:'See all restaurants' do %>
                     View Restaurants <i class='glyphicon glyphicon-arrow-left'></i>
                 <% end %>
@@ -70,24 +71,21 @@
                 <h3> DELETE RESTAURANT</h3>
                 <p> By correclty entering the restaurant and click Delete restaurant button, you permanently delete this restaurant.</p>
                 <div class='form-group'>
-                    <div class='control-label col-md-2'> 
+                    <div class='control-label col-sm-3 col-md-2'>
                         <%= form.label :name do %>
                             Name <span class="required">*</span>
                         <% end %>
                     </div>
-                    <div class='col-md-10'>
+                    <div class='col-sm-8 col-md-9'>
                         <%= form.text_field :name, class: 'form-control' ,value: '' %>
                     </div>
-                <!--</div>-->
-                <!--<div class='form-group'>-->
-                    <!--<div class='col-md-offset-2 col-md-10'>-->
-                    <div class='col-md-offset-2 col-md-10'>
-                        <%= form.button class: 'btn btn-primary btn-lg',
-                        data: { confirm: "Are you sure you want to delete #{@restaurant.name}?\n This action cannot be undone." } do %>
-                            Delete <i class='glyphicon glyphicon-trash'></i>
-                        <% end %>
-                    </div>
                 </div>
+                  <!-- <div class='col-md-offset-2 col-md-10'> -->
+                       <%= form.button class: 'btn btn-primary btn-lg col-xs-12', id: 'delete',disabled: true,
+                      data: { confirm: "Are you sure you want to delete #{@restaurant.name}?\n This action cannot be undone." } do %>
+                          Delete <%= @restaurant.name %> <i class='glyphicon glyphicon-trash'></i>
+                      <% end %>
+                  <!-- </div> -->
             <% end %>
         </div>
     </div>
