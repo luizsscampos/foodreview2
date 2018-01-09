@@ -6,4 +6,10 @@ class Restaurant < ApplicationRecord
   validates :address1, presence: true, length: { minimum: 3 }
   validates :city, presence: true, length: { minimum: 3 }
   validates :postcode, presence: true, length: { minimum: 3, maximum: 10 }
+
+  def full_address
+    address = [address1,address2,city,county,postcode]
+    address.select!{|part| !part.strip.empty?}
+    return address.join(', ')
+  end
 end
