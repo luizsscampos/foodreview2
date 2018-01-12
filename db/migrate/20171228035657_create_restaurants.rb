@@ -1,3 +1,5 @@
+# Migration for creating restaurants table from
+# restaurants model
 class CreateRestaurants < ActiveRecord::Migration[5.1]
   def change
     create_table :restaurants do |restaurant|
