@@ -1,4 +1,4 @@
-@category1 = Category.where(title: 'Hing Lee Chinese Restaurant').first_or_create(
+@category1 = Category.where(title: 'Chinese').first_or_create(
   title: 'Chinese'
 )
 
