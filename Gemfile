@@ -68,6 +68,7 @@ group :test do
   gem 'rubocop'
   gem 'selenium-webdriver'
   # gem 'simplecov', :require => false
+  gem 'shoulda-matchers'
   gem 'simplecov', require: false
 end
 
