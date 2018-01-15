@@ -25,6 +25,7 @@ class RestaurantsController < ApplicationController
   def edit; end
 
   def update
+    # puts restaurant_params.inspect
     if @restaurant.update(restaurant_params)
       flash[:sucess] = 'Restaurant has been upated'
       redirect_to @restaurant
@@ -36,7 +37,6 @@ class RestaurantsController < ApplicationController
 
   def destroy
     @myrestaurant = Restaurant.new(restaurant_params)
-    puts @myrestaurant.inspect
     # if @restaurant.name == @myrestaurant.name && @restaurant.destroy
     if @restaurant.destroy
       flash[:success] = 'Restaurant has been deleted'
@@ -67,7 +67,8 @@ class RestaurantsController < ApplicationController
       :address2,
       :city,
       :county,
-      :postcode
+      :postcode,
+      category_ids: []
     )
   end
 
