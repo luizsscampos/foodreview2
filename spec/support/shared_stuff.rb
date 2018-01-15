@@ -18,5 +18,18 @@ RSpec.shared_context 'shared_stuff' do
       county:  'Surrey',
       postcode: 'SM2 5AD'
     )
+
+    @category1 = Category.where(title: 'Hing Lee Chinese Restaurant')
+                         .first_or_create(
+                           title: 'Chinese'
+                         )
+
+    @category2 = Category.where(title: 'Italien')
+                         .first_or_create(
+                           title: 'Italien'
+                         )
+
+    @restaurant1.categories << @category1
+    @restaurant2.categories << @category2
   end
 end
