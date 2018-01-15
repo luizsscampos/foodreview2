@@ -1,6 +1,10 @@
 # Restaurant Model for table restaurants
 # Contains any validation & how it relates to other tables
 class Restaurant < ApplicationRecord
+
+  has_many :category_restaurants
+  has_many :categories, through: :category_restaurants
+
   validates :name, presence: true, length: { minimum: 3 }
   validates :description, presence: true, length: { minimum: 3 }
   validates :address1, presence: true, length: { minimum: 3 }
