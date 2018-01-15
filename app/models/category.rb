@@ -1,7 +1,6 @@
 # Category Model for table Categories
 # Contains any validation & how it relates to other tables
 class Category < ApplicationRecord
-
   has_many :category_restaurants
   has_many :restaurants, through: :category_restaurants
 

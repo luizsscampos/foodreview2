@@ -1,7 +1,6 @@
 # Restaurant Model for table restaurants
 # Contains any validation & how it relates to other tables
 class Restaurant < ApplicationRecord
-
   has_many :category_restaurants
   has_many :categories, through: :category_restaurants
 
@@ -14,6 +13,6 @@ class Restaurant < ApplicationRecord
   def full_address
     address = [address1, address2, city, county, postcode]
     address.reject! { |part| part.strip.empty? }
-    return address.join(', ')
+    address.join(', ')
   end
 end
