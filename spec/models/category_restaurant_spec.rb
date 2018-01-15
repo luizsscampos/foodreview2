@@ -7,7 +7,6 @@ RSpec.describe CategoryRestaurant, type: :model do
   end
   it 'belong to one category' do
     assc = described_class.reflect_on_association(:category)
-    puts described_class.methods
     expect(assc.macro).to eq :belongs_to
   end
 end
