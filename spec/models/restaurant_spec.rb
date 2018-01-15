@@ -3,13 +3,13 @@ require 'rails_helper'
 RSpec.describe Restaurant, type: :model do
   subject(:restaurant1) do
     described_class.new(
-      name: 'Amigos Mexican Restaurant',
-      description: Faker::Lorem.paragraph(5, true, 7),
-      address1: '41 Friar Street',
+      name: 'Nur',
+      description: Faker::Lorem.paragraph(6, true, 4),
+      address1: '1-3 Devizes Road',
       address2: '',
-      city:  'Worchester',
+      city:  'Glasgow',
       county:  '',
-      postcode: 'WR1 2NA'
+      postcode: 'G5 9HR'
     )
   end
   it 'is valid with valid attributes' do
@@ -41,7 +41,7 @@ RSpec.describe Restaurant, type: :model do
     let(:address1) { restaurant1.address1 }
     let(:address2) { restaurant1.address2 }
     let(:city) { restaurant1.city }
-    let(:county) { restaurant1.county}
+    let(:county) { restaurant1.county }
     let(:postcode) { restaurant1.postcode }
     context 'with partial address' do
       it 'return format address' do
@@ -56,9 +56,20 @@ RSpec.describe Restaurant, type: :model do
       end
       it 'return format address' do
         myaddress = [address1, address2, city, county, postcode].join(', ')
-        puts myaddress
         expect(restaurant1.full_address).to eq myaddress
       end
+    end
+    it 'has many catergories' do
+      restaurant1.save
+      category1 = Category.where(title: 'Chinese').first_or_create(
+        title: 'Chinese'
+      )
+      CategoryRestaurant.create(
+        restaurant_id: restaurant1.id,
+        category_id: category1.id
+      )
+      should have_many(:categories).through(:category_restaurants)
+      expect(restaurant1.categories.first.title).to eq category1.title
     end
   end
 end
