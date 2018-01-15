@@ -1,3 +1,5 @@
+# Migration for creating category_restaurants table from
+# CategoryRestaurants
 class CreateCategoryRestaurants < ActiveRecord::Migration[5.1]
   def change
     create_table :category_restaurants do |t|
