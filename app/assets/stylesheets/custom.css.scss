@@ -99,6 +99,16 @@ $red: #a80000;
   color: $red;
   font-weight: bold;
 }
+
+.input_checkbox {
+  font-weight: bold;
+  letter-spacing: .5px;
+
+  input {
+    width: auto !important;
+  }
+}
+
 /* ==========================================================
 ! restaurant
 ========================================================== */
@@ -137,6 +147,31 @@ $red: #a80000;
 
 .more-info .field-name {
   font-weight: bold;
+}
+
+.category {
+  background-color: #3c8dbc;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 2px;
+
+  &:hover {
+    background-color: #285070;
+    text-decoration: none;
+  }
+
+  a {
+    color: $white;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 7px;
+    text-transform: uppercase;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .restaurant-links {
