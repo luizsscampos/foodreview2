@@ -19,4 +19,21 @@ module Helper
     end
   end
 
+  def uncheck_all(scope)
+    if scope.nil?
+      all('input[type=checkbox]').each do |checkbox|
+        if checkbox.checked?
+          checkbox.click
+        end
+      end
+    else
+      find(scope).all('input[type=checkbox]').each do |checkbox|
+        if checkbox.checked?
+          checkbox.click
+        end
+      end
+    end
+  end
+  
+
 end
