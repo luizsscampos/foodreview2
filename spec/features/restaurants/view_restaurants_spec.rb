@@ -18,9 +18,7 @@ RSpec.feature 'View restaurants' do
     expect(page).not_to have_content 'No restaurants avaliable'
     within('//li#restaurant1') do
       expect(page).to have_content @restaurant1.name
-      categories_titles = @restaurant1.categories.map do |category|
-                                                        category.title
-                                                      end.join(' ')
+      categories_titles = @restaurant1.categories.map(&:title).join(' ')
       expect(page).to have_content categories_titles
     end
     within('//li#restaurant2') do
