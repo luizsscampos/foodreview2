@@ -12,7 +12,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
-      flash[:sucess] = 'Restaurant has been created'
+      flash[:success] = 'Restaurant has been created'
       redirect_to restaurants_path
     else
       flash[:danger] = 'Restaurant has not been created'
@@ -27,7 +27,7 @@ class RestaurantsController < ApplicationController
   def update
     # puts restaurant_params.inspect
     if @restaurant.update(restaurant_params)
-      flash[:sucess] = 'Restaurant has been upated'
+      flash[:success] = 'Restaurant has been upated'
       redirect_to @restaurant
     else
       flash.now[:danger] = 'Restaurant has not been upated'
