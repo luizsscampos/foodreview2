@@ -1,6 +1,5 @@
 require 'rails_helper'
 require_relative '../../support/shared_stuff'
-require_relative '../../support/helper'
 RSpec.feature 'Creating restaurant' do
   include_context 'shared_stuff'
   include Helper
