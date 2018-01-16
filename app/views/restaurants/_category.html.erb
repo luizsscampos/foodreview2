@@ -1,0 +1,7 @@
+<% if categories.any? %>
+  <% categories.each do |category| %>
+    <span class="category">
+      <a href='#'><%= category.title %></a>
+    </span>
+  <% end %>
+<% end %>
