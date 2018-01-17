@@ -24,6 +24,7 @@ RSpec.describe 'Delete Restaurant' do
     expect(current_path).to have_content(restaurants_path)
     # binding.pry
     expect(Restaurant.count).to eq 1
-    driver.quit
+    expect(CategoryRestaurant.where(restaurant_id: @restaurant2.id).count).to eq 0
+     driver.quit
   end
 end
