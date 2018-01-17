@@ -1,39 +1,41 @@
 <div class='row'>
     <!--  <div class='restaurant col-sm-7' style='padding-left:15px; padding-right:15px; margin:0;'> -->
-    <div class='restaurant col-sm-7' style='padding:15px; padding-right:15px; margin-left:0;margin-right:0;'>
-        <div>
+    <div class='restaurant col-sm-7' style='padding:15px; margin-left:0;margin-right:0;'>
+        <!-- <div> -->
             <h2 class='text-center restaurant-name'><%= @restaurant.name %></h2>
             Image<br>[image here]<br>
             <h3><%= @restaurant.full_address %></h3>
             <div class='row' style='margin-left:0; margin-right:0'>
-                <ul class='more-info col-sm-6'>
-                    <li class="clearfix">
+                <ul class='more-info'>
+                  <li class="clearfix col-sm-11 col-sm-center-offset-1">
+                      <span class="pull-left field-name">Type:</span>
+                      <span class="qty pull-right">
+                        <%= render 'category', categories: @restaurant.categories %>
+                      </span>
+                  </li>
+                    <li class="clearfix col-sm-5 col-sm-center-offset-1">
                         <span class="pull-left field-name">Parking:</span>
                         <span class="qty pull-right">Yes</span>
                     </li>
-                    <li class="clearfix">
+                    <li class="clearfix col-sm-5 col-sm-center-offset-1">
                         <span class="pull-left field-name">WiFi:</span>
                         <span class="qty pull-right">Yes</span>
                     </li>
-                    <li class="clearfix">
-                        <span class="pull-left field-name">Type:</span>
-                        <span class="qty pull-right">Chinese</span>
-                    </li>
-                    <li class="clearfix">
+                    <li class="clearfix col-sm-5 col-sm-center-offset-1">
                         <span class="pull-left field-name">Outdoor Seating:</span>
                         <span class="qty pull-right">No</span>
                     </li>
                 </ul>
-                <ul class='more-info col-sm-6'>
-                    <li class="clearfix">
+                <ul class='more-info'>
+                    <li class="clearfix col-sm-5 col-sm-center-offset-1">
                         <span class="pull-left field-name">Takeaway:</span>
                         <span class="qty pull-right">No</span>
                     </li>
-                    <li class="clearfix">
+                    <li class="clearfix col-sm-5 col-sm-center-offset-1">
                         <span class="pull-left field-name">Delivery:</span>
                         <span class="qty pull-right">No</span>
                     </li>
-                    <li class="clearfix">
+                    <li class="clearfix col-sm-5 col-sm-center-offset-1">
                         <span class="pull-left field-name">Serving Times:</span>
                         <span class="qty pull-right">No</span>
                     </li>
@@ -79,9 +81,9 @@
                       <div class='clearfix'></div>
                   <!-- </div> -->
             <% end %>
-        </div>
+        <!-- </div> -->
     </div>
-    <div class='col-sm-4 col-sm-offset-1' >
+    <div class='col-sm-4' style='padding:15px;' >
         <%= render 'layouts/map' %>
         <%= render 'layouts/owner' %>
         <%= render 'layouts/search_form' %>
