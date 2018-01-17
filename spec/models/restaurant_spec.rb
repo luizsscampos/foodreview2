@@ -59,17 +59,17 @@ RSpec.describe Restaurant, type: :model do
         expect(restaurant1.full_address).to eq myaddress
       end
     end
-    it 'has many catergories' do
-      restaurant1.save
-      category1 = Category.where(title: 'Chinese').first_or_create(
-        title: 'Chinese'
-      )
-      CategoryRestaurant.create(
-        restaurant_id: restaurant1.id,
-        category_id: category1.id
-      )
-      should have_many(:categories).through(:category_restaurants)
-      expect(restaurant1.categories.first.title).to eq category1.title
-    end
+  end
+  it 'has many catergories' do
+    restaurant1.save
+    category1 = Category.where(title: 'Chinese').first_or_create(
+      title: 'Chinese'
+    )
+    CategoryRestaurant.create(
+      restaurant_id: restaurant1.id,
+      category_id: category1.id
+    )
+    should have_many(:categories).through(:category_restaurants)
+    expect(restaurant1.categories.first.title).to eq category1.title
   end
 end
