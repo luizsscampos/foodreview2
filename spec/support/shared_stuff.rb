@@ -2,7 +2,7 @@ RSpec.shared_context 'shared_stuff' do
   before do
     @restaurant1 = Restaurant.create(
       name: 'Nando',
-      description: Faker::Lorem.unique.paragraph(2, true, 5),
+      description: Faker::Lorem.unique.paragraph(3, true, 10),
       address1: '5 Lomdon Close',
       address2: 'Sparclls',
       city: 'Swindon',
@@ -11,7 +11,7 @@ RSpec.shared_context 'shared_stuff' do
     )
     @restaurant2 = Restaurant.create(
       name: 'IIL TOSCANO RISTORANTE',
-      description: Faker::Lorem.unique.paragraph(2, true, 5),
+      description: Faker::Lorem.unique.paragraph(3, true, 10),
       address1: '6-7 station Parade Brighton Road',
       address2: '',
       city:  ' Sutton',
@@ -30,6 +30,7 @@ RSpec.shared_context 'shared_stuff' do
                          )
 
     @restaurant1.categories << @category1
+    @restaurant1.categories << @category2
     @restaurant2.categories << @category2
   end
 end
