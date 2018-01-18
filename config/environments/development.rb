@@ -58,4 +58,7 @@ Rails.application.configure do
     '10.240.0.211/22',
     '192.168.1.0/24'
   ]
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
 end
