@@ -12,28 +12,21 @@ module Helper
     fill_in('restaurant[county]', with: restaurant[:county])
     fill_in('restaurant[postcode]', with: restaurant[:postcode])
 
-    unless restaurant[:category].nil? || restaurant[:category].empty?
-      restaurant[:category].each do |category|
-        check(category)
-      end
+    return if restaurant[:category].nil? || restaurant[:category].empty?
+    restaurant[:category].each do |category|
+      check(category)
     end
   end
 
   def uncheck_all(scope)
     if scope.nil?
       all('input[type=checkbox]').each do |checkbox|
-        if checkbox.checked?
-          checkbox.click
-        end
+        checkbox.click if checkbox.checked?
       end
     else
       find(scope).all('input[type=checkbox]').each do |checkbox|
-        if checkbox.checked?
-          checkbox.click
-        end
+        checkbox.click if checkbox.checked?
       end
     end
   end
-  
-
 end
