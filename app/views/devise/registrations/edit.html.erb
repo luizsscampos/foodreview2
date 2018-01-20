@@ -1,38 +1,107 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2 class='text-center'>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-horizontal", role: "form"}) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class='form-group'>
+    <div class='control-label col-sm-2'>
+      <%= f.label :first_name do %>
+          First name <span class="required">*</span>
+      <% end %>
+    </div>
+    <div class='col-sm-10'>
+      <%= f.text_field :first_name, class: 'form-control', placeholder: 'E.g. Sam', autofocus: true %>
+    </div>
+  </div>
+
+
+  <div class='form-group'>
+    <div class='control-label col-sm-2'>
+      <%= f.label :last_name  do %>
+          Last name <span class="required">*</span>
+      <% end %>
+    </div>
+    <div class='col-sm-10'>
+      <%= f.text_field :last_name, class: 'form-control', placeholder: 'E.g. John', autofocus: true %>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='control-label col-sm-2'>
+      <%= f.label :username  do %>
+          Username <span class="required">*</span>
+      <% end %>
+    </div>
+    <div class='col-sm-10'>
+      <%= f.text_field  :username, class: 'form-control', placeholder: 'E.g. ghost', autofocus: true %>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='control-label col-sm-2'>
+      <%= f.label :tel   do %>
+          Telephone <span class="required">*</span>
+      <% end %>
+    </div>
+    <div class='col-sm-10'>
+      <%= f.text_field  :tel, class: 'form-control', placeholder: 'E.g. 07975274081', autofocus: true %>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='control-label col-sm-2'>
+      <%= f.label :email %>
+    </div>
+    <div class='col-sm-10'>
+      <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'E.g. ghost',autocomplete: "email" %>
+    </div>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+  <div class='form-group'>
+    <div class='control-label col-sm-2'>
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+        <br />
+        <em><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
+    <div class='col-sm-10'>
+      <%= f.password_field :password, class: 'form-control', placeholder: 'E.g. ghost',autocomplete: "off" %>
+      <br><i>(leave blank if you don't want to change it)</i>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class='form-group'>
+    <div class='control-label col-sm-2'>
+      <%= f.label :password_confirmation %>
+    </div>
+    <div class='col-sm-10'>
+      <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'E.g. ghost',autocomplete: "off" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+  <div class='form-group'>
+    <div class='control-label col-sm-2'>
+      <%= f.label :current_password %> <i>(current password to confirm your changes)</i>
+    </div>
+    <div class='col-sm-10'>
+      <%= f.password_field :current_password, class: 'form-control', placeholder: 'E.g. ghost',autocomplete: "off" %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
+  <div class='form-group'>
+    <div class='col-sm-offset-2 col-sm-10'>
+      <%= link_to user_path(current_user.id), class:'btn btn-default btn-lg pull-left' do %>
+          Cancel <i class='glyphicon glyphicon-remove'></i>
+      <% end %>
+      <%= f.button class: 'btn btn-primary btn-lg pull-right', id: 'commit' do %>
+         Update <i class='glyphicon glyphicon-save'></i>
+     <% end %>
+    </div>
   </div>
 <% end %>
 
