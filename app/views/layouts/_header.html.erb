@@ -9,45 +9,82 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">FoodReview <%= image_tag('foodreview5-min.png', class: 'brand-image img-responsive') %>
-      
+
+      <a class="navbar-brand" href="/">FoodReview <%= image_tag('foodreview5-min40x40.png', class: 'brand-image img-responsive') %>
+
       </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/"><i class="glyphicon glyphicon-home"></i><span class="sr-only">(current)</span></a></li>
+        <li class="active">
+        <a href="/">
+          Home <i class="glyphicon glyphicon-home"></i>
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            About <%= image_tag("about20x20.png", alt: "About") %>
+            <span class="caret"></span>
+          </a>
           <ul class="dropdown-menu">
-            <li><a href="#">Our Story</a></li>
-            <li><a href="#">Agents</a></li>
+            <li><a href="#">Our Story <%= image_tag("story20x20.png", alt: "Our history") %></a></li>
+            <li><a href="#">Team <%= image_tag("team20x20.png", alt: "team") %></a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Careers</a></li>
+            <li><a href="#">Careers <%= image_tag("career20x20.png", alt: "career") %></a></li>
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Support <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Support <%= image_tag("support20x20.png", alt: "Support") %>
+            <span class="caret"></span>
+          </a>
           <ul class="dropdown-menu">
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">Contact <i class='glyphicon glyphicon-envelope'></i></a></li>
             <li role="separator" class="divider"></li>
-           <li><a href="#">FAQs</a></li>
+           <li><a href="#">FAQs <i class='glyphicon glyphicon-question-sign'></i></a></li>
           </ul>
         </li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Username<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.username %> <i class='glyphicon glyphicon-user'></i>
+            <span class="caret"></span>
+          </a>
           <ul class="dropdown-menu">
-            <li><a href="#">Account</a></li>
+            <li>
+              <!-- <a href="#">Account</a> -->
+              <%= link_to user_path(current_user.id) do %>
+                  account <%= image_tag("account20x20.png", alt: "Your account") %>
+              <% end %>
+            </li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Logout</a></li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                  Log Out <i class='glyphicon glyphicon-log-out'></i>
+              <% end %>
+            </li>
           </ul>
         </li>
-        <li><a href="#">Sign Up</a></li>
-        <li><a href="#">Sign In</a></li>
+        <% else %>
+        <li>
+          <!-- <a href="#">Sign Up</a> -->
+          <%= link_to new_user_registration_path do %>
+              Sign Up
+              <%= image_tag("signup20x20.png", alt: "Sign up") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_user_session_path do %>
+              Sign in <i class='glyphicon glyphicon-log-in'></i>
+          <% end %>
+        </li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
