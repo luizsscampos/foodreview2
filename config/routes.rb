@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # get 'users/show'
+
   devise_for :users
   #   get 'restaurants/index'
   # For details on the DSL available within this file,
@@ -6,6 +8,7 @@ Rails.application.routes.draw do
   root to: 'restaurants#index'
 
   resources :restaurants
+  resources :users
   # Add following paths for restaurants
   # Prefix              Verb        URI Pattern                     Controller#Action
   # root                GET         /                               restaurant#index
