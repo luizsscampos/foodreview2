@@ -5,9 +5,16 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
+# movies = Movie.create(
+#   [
+#     { name: 'Star Wars' },
+#     { name: 'Lord of the Rings' }
+#   ]
+# )
+# Character.create(
+#   name: 'Luke',
+#   movie: movies.first
+# )
 
 require_relative './restaurants'
 require_relative './categories'
@@ -15,7 +22,7 @@ require_relative './categories'
 @restaurant5.categories << @category5
 @restaurant5.categories << @category6
 @restaurant5.categories << @category7
-# @restaurant6.categories << @category6
+@restaurant6.categories << @category6
 @restaurant7.categories << @category7
 @restaurant8.categories << @category8
 @restaurant9.categories << @category9
