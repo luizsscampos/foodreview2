@@ -1,5 +1,16 @@
 RSpec.shared_context 'shared_stuff' do
   before do
+    # Users
+    @user1 = User.create(
+      first_name: 'John',
+      last_name: 'Doe',
+      username: 'The Reaper',
+      tel: '06706143682',
+      email:  'john_doe@gmail.com',
+      password:  'shadow'
+    )
+
+    # Restaurants
     @restaurant1 = Restaurant.create(
       name: 'Nando',
       description: Faker::Lorem.unique.paragraph(3, true, 10),
@@ -19,6 +30,7 @@ RSpec.shared_context 'shared_stuff' do
       postcode: 'SM2 5AD'
     )
 
+    # Categories
     @category1 = Category.where(title: 'Hing Lee Chinese Restaurant')
                          .first_or_create(
                            title: 'Chinese'
