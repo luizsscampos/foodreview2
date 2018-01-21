@@ -30,3 +30,10 @@ module Helper
     end
   end
 end
+
+def fill_out_form(object, parent)
+  object.each do |key, field|
+    name = "#{parent}[#{key}]"
+    fill_in(name, with: field[:value])
+  end
+end
