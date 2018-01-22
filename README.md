@@ -35,14 +35,14 @@ Constructed a clone of Yelp using following technology
 - Selenium webdriver
 - Carrierwave
 
-[screenshot]
+![Thermostat](https://github.com/KKOA/foodreview2/blob/master/ScreenShot.png)
 
 ## Setup application
 
 The installition assume have homebrew install on the current device
 
 ```
-git clone 
+git clone
 cd foodreview
 bundle
 brew install imagemagick
@@ -52,9 +52,9 @@ rails s db:reset
 ## Run application
 ```
 cd cd foodreview
-rails s 
+rails s
 ```
-Navigate to browser and enter<br> 
+Navigate to browser and enter<br>
 http://localhost:3000<br>
 and hit return
 
